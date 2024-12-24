@@ -1,25 +1,35 @@
-function adjustCardSize() {
-  const card = document.querySelector(".card");
+function preloadImages(images) {
+  let loadedCount = 0;
 
-  if (window.matchMedia("(orientation: landscape)").matches) {
-    card.style.width = "420px";
-    card.style.height = "680px";
-  } else {
-    card.style.width = "210px";
-    card.style.height = "340px";
-  }
+  images.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+    img.loading = "lazy"; // Add loading attribute
+
+    img.onload = () => {
+      loadedCount++;
+      if (loadedCount === images.length) {
+        console.log("Zdjęcia załadowane");
+      }
+    };
+
+    img.onerror = () => {
+      console.error(`Nie udało się załadować obrazu: ${src}`);
+    };
+  });
 }
-window.addEventListener("load", adjustCardSize);
-window.addEventListener("resize", adjustCardSize);
+
+// Preload obrazków kartki
+preloadImages(["kartkaŚwiateczna-01.png", "kartkaŚwiateczna-02.png"]);
 
 const card = document.getElementById("flip-card");
 card.addEventListener("click", () => {
   card.classList.toggle("flipped");
 });
 
-const duration = 150 * 1000; // 15 sekund
+const duration = 360 * 1000; // 15 sekund
 const animationEnd = Date.now() + duration;
-let skew = 0.002;
+let skew = 0.2;
 
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
@@ -38,13 +48,12 @@ function frame() {
     origin: {
       x: Math.random(),
       y: Math.random() * skew - 0.2, // przesunięcie cząsteczek
-      origin: { z: -1 },
     },
     colors: ["#ffffff"],
     shapes: ["circle"],
-    gravity: randomInRange(0.9, 2),
-    scalar: randomInRange(0.4, 20),
-    drift: randomInRange(-0.4, 0.7),
+    gravity: randomInRange(100, 120),
+    scalar: randomInRange(1, 2),
+    drift: randomInRange(-0.4, 0.4),
   });
 
   if (timeLeft > 0) {
