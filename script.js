@@ -1,25 +1,4 @@
-function preloadImages(images) {
-  let loadedCount = 0;
-
-  images.forEach((src) => {
-    const img = new Image();
-    img.src = src;
-    img.loading = "lazy"; // Add loading attribute
-
-    img.onload = () => {
-      loadedCount++;
-      if (loadedCount === images.length) {
-        console.log("Zdjęcia załadowane");
-      }
-    };
-
-    img.onerror = () => {
-      console.error(`Nie udało się załadować obrazu: ${src}`);
-    };
-  });
-}
-
-// Preload obrazków kartki
+// Preload obrazków kartki świątecznej
 preloadImages(["kartkaŚwiateczna-01.png", "kartkaŚwiateczna-02.png"]);
 
 const card = document.getElementById("flip-card");
@@ -67,7 +46,7 @@ window.addEventListener("load", () => {
   const cardElement = document.querySelector(".card");
   const shakeAnimationDuration =
     getComputedStyle(cardElement).animationDuration;
-  const delay = parseFloat(shakeAnimationDuration) * 1000; // Convert to milliseconds
+  const delay = (parseFloat(shakeAnimationDuration) * 1000) / 2; // Convert to milliseconds
 
   setTimeout(() => {
     frame();
