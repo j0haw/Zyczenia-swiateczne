@@ -23,6 +23,7 @@ body {
   width: 100%;
   height: 100%;
   background-image: url("./background.png");
+  filter: blur(2px);
   background-size: cover;
   background-position: center;
   z-index: -1; /* Ensure the background is behind other elements */
@@ -80,7 +81,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0px 500px rgba(250, 250, 250, 0.05);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 /* Front Side */
