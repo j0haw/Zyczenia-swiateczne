@@ -63,5 +63,7 @@ function frame() {
 
 // Automatyczny start po załadowaniu strony
 window.addEventListener("load", () => {
-  frame();
+  setTimeout(() => {
+    frame();
+  }, 2000); // Start frame function after 2 seconds
 });
