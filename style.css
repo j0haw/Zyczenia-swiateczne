@@ -3,9 +3,8 @@
   position: relative;
 }
 
-/* Body Styling */
 body {
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
   background-color: #040904;
   display: flex;
   flex-direction: column;
@@ -22,11 +21,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("./background.png");
+  background-image: url("./background.jpg");
   filter: blur(2px);
   background-size: cover;
   background-position: center;
-  z-index: -2; /* Ensure the background is behind other elements */
+  z-index: -2;
 }
 
 @keyframes shake {
@@ -50,7 +49,7 @@ body {
 }
 
 .card {
-  z-index: 1; /* Ensure the card is on top */
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,12 +58,11 @@ body {
   aspect-ratio: 210 / 340;
   perspective: 1000px;
   cursor: pointer;
-  margin: 0 auto; /* Center horizontally */
+  margin: 0 auto;
   animation: shake 1.5s;
   animation-iteration-count: 1;
 }
 
-/* Card Inner (flipping mechanism) */
 .card-inner {
   width: 100%;
   height: 100%;
@@ -84,7 +82,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.9) 0px 22px 70px 4px;
 }
 
-/* Front Side */
 .card-front {
   color: rgb(0, 0, 0);
 }
@@ -95,35 +92,12 @@ body {
   width: auto;
 }
 
-/* Back Side */
 .card-back {
   transform: rotateY(180deg);
 }
 
-/* Flipped Class */
 .card.flipped .card-inner {
   transform: rotateY(180deg);
-}
-
-/* Snowflake Styling */
-#snow-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.snowflake {
-  position: absolute;
-  top: -10px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  pointer-events: none;
-  animation: fall linear infinite;
 }
 
 @keyframes fall {
