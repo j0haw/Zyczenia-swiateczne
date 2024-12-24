@@ -48,7 +48,7 @@ function frame() {
     gravity: randomInRange(10, 60),
     scalar: randomInRange(0.01, 0.05),
     drift: randomInRange(-0.4, 0.4),
-    zIndex: 2, // Ensure confetti is in front of the card
+    zIndex: -1, // Ensure confetti is in front of the card
   });
 
   if (timeLeft > 0) {
