@@ -3,7 +3,7 @@ card.addEventListener("click", () => {
   card.classList.toggle("flipped");
 });
 
-const duration = 360 * 1000; // 36 sekund
+const duration = 600 * 1000; 
 const animationEnd = Date.now() + duration;
 let skew = 1;
 
@@ -28,10 +28,10 @@ function frame() {
     },
     colors: ["#ffffff"], // White color for snow
     shapes: ["circle"], // Circle shape for snowflakes
-    gravity: randomInRange(10, 80),
+    gravity: randomInRange(10, 60),
     scalar: randomInRange(0.4, 0.6),
-    drift: randomInRange(-0.2, 0.2),
-    zIndex: -1, // Ensure confetti is behind the card
+    drift: randomInRange(-0.4, 0.4),
+    zIndex: -1,  the card
   });
 
   // Second confetti effect with different scalar and higher z-index
@@ -45,9 +45,9 @@ function frame() {
     },
     colors: ["#ffffff"], // White color for snow
     shapes: ["circle"], // Circle shape for snowflakes
-    gravity: randomInRange(10, 80),
+    gravity: randomInRange(10, 60),
     scalar: randomInRange(0.01, 0.05),
-    drift: randomInRange(-0.2, 0.2),
+    drift: randomInRange(-0.4, 0.4),
     zIndex: 2, // Ensure confetti is in front of the card
   });
 
