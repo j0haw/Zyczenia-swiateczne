@@ -1,6 +1,3 @@
-// Preload obrazków kartki świątecznej
-preloadImages(["kartkaŚwiateczna-01.png", "kartkaŚwiateczna-02.png"]);
-
 const card = document.getElementById("flip-card");
 card.addEventListener("click", () => {
   card.classList.toggle("flipped");
@@ -46,7 +43,7 @@ window.addEventListener("load", () => {
   const cardElement = document.querySelector(".card");
   const shakeAnimationDuration =
     getComputedStyle(cardElement).animationDuration;
-  const delay = (parseFloat(shakeAnimationDuration) * 1000) / 2; // Convert to milliseconds
+  const delay = parseFloat(shakeAnimationDuration) * 1000; // Convert to milliseconds
 
   setTimeout(() => {
     frame();
