@@ -27,7 +27,7 @@ card.addEventListener("click", () => {
   card.classList.toggle("flipped");
 });
 
-const duration = 360 * 1000; // 15 sekund
+const duration = 360 * 1000; // 36 sekund
 const animationEnd = Date.now() + duration;
 let skew = 1;
 
@@ -37,7 +37,7 @@ function randomInRange(min, max) {
 
 function frame() {
   const timeLeft = animationEnd - Date.now();
-  const ticks = Math.max(90, 100 * (timeLeft / duration));
+  const ticks = Math.max(1, 16 * (timeLeft / duration));
 
   skew = Math.max(0.2, skew - 0.01);
 
@@ -49,11 +49,12 @@ function frame() {
       x: Math.random(),
       y: Math.random() * skew - 0.2, // przesunięcie cząsteczek
     },
-    colors: ["#ffffff"],
-    shapes: ["circle"],
+    colors: ["#ffffff"], // White color for snow
+    shapes: ["circle"], // Circle shape for snowflakes
     gravity: randomInRange(10, 120),
     scalar: randomInRange(0.1, 1),
     drift: randomInRange(-1, 1),
+    zIndex: -1, // Ensure confetti is behind the card
   });
 
   if (timeLeft > 0) {
@@ -63,7 +64,12 @@ function frame() {
 
 // Automatyczny start po załadowaniu strony
 window.addEventListener("load", () => {
+  const cardElement = document.querySelector(".card");
+  const shakeAnimationDuration =
+    getComputedStyle(cardElement).animationDuration;
+  const delay = parseFloat(shakeAnimationDuration) * 1000; // Convert to milliseconds
+
   setTimeout(() => {
     frame();
-  }, 2000); // Start frame function after 2 seconds
+  }, delay); // Start frame function after the shake animation duration
 });
