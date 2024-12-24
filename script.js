@@ -46,7 +46,7 @@ function frame() {
     colors: ["#ffffff"], // White color for snow
     shapes: ["circle"], // Circle shape for snowflakes
     gravity: randomInRange(10, 80),
-    scalar: randomInRange(0.05, 0.1),
+    scalar: randomInRange(0.01, 0.05),
     drift: randomInRange(-0.2, 0.2),
     zIndex: 2, // Ensure confetti is in front of the card
   });
