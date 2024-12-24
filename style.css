@@ -26,7 +26,7 @@ body {
   filter: blur(2px);
   background-size: cover;
   background-position: center;
-  z-index: -1; /* Ensure the background is behind other elements */
+  z-index: -2; /* Ensure the background is behind other elements */
 }
 
 @keyframes shake {
@@ -50,7 +50,7 @@ body {
 }
 
 .card {
-  z-index: 10; /* Ensure the card is on top */
+  z-index: 1; /* Ensure the card is on top */
   display: flex;
   justify-content: center;
   align-items: center;

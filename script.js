@@ -17,6 +17,7 @@ function frame() {
 
   skew = Math.max(0.2, skew - 0.01);
 
+  // First confetti effect
   confetti({
     particleCount: 1,
     startVelocity: 0,
@@ -28,9 +29,26 @@ function frame() {
     colors: ["#ffffff"], // White color for snow
     shapes: ["circle"], // Circle shape for snowflakes
     gravity: randomInRange(10, 120),
-    scalar: randomInRange(0.1, 1),
-    drift: randomInRange(-1, 1),
+    scalar: randomInRange(0.4, 0.6),
+    drift: randomInRange(-0.2, 0.2),
     zIndex: -1, // Ensure confetti is behind the card
+  });
+
+  // Second confetti effect with different scalar and higher z-index
+  confetti({
+    particleCount: 1,
+    startVelocity: 0,
+    ticks: ticks,
+    origin: {
+      x: Math.random(),
+      y: Math.random() * skew - 0.1, // przesunięcie cząsteczek
+    },
+    colors: ["#ffffff"], // White color for snow
+    shapes: ["circle"], // Circle shape for snowflakes
+    gravity: randomInRange(10, 120),
+    scalar: randomInRange(0.1, 0.2),
+    drift: randomInRange(-0.2, 0.2),
+    zIndex: 11, // Ensure confetti is in front of the card
   });
 
   if (timeLeft > 0) {
@@ -43,7 +61,7 @@ window.addEventListener("load", () => {
   const cardElement = document.querySelector(".card");
   const shakeAnimationDuration =
     getComputedStyle(cardElement).animationDuration;
-  const delay = parseFloat(shakeAnimationDuration) * 1000; // Convert to milliseconds
+  const delay = parseFloat(shakeAnimationDuration) * 800; // Convert to milliseconds
 
   setTimeout(() => {
     frame();
