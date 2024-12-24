@@ -31,7 +31,7 @@ function frame() {
     gravity: randomInRange(10, 60),
     scalar: randomInRange(0.4, 0.6),
     drift: randomInRange(-0.4, 0.4),
-    zIndex: -1,  the card
+    zIndex: -1,
   });
 
   // Second confetti effect with different scalar and higher z-index
