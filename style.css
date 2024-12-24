@@ -5,6 +5,7 @@
 
 /* Body Styling */
 body {
+  overflow: hidden; /* Hide scrollbars */
   background-color: #040904;
   display: flex;
   flex-direction: column;
@@ -13,37 +14,39 @@ body {
   height: 100svh;
 }
 
-/* @keyframes bounce {
+@keyframes shake {
   0%,
-  20%,
-  50%,
-  80%,
   100% {
-    transform: translateY(0);
+    transform: translate(0, 0) rotate(0);
   }
-  40% {
-    transform: translateX(30px);
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate(-10px, 0) rotate(-5deg);
   }
-  60% {
-    transform: translateX(-30px);
-  }
+  20%,
+  40%,
+  60%,
   80% {
+    transform: translate(10px, 0) rotate(5deg);
   }
-} */
+}
 
 .card {
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90svh;
+  height: 80svh;
   width: auto;
   aspect-ratio: 210 / 340;
   perspective: 1000px;
   cursor: pointer;
   margin: 0 auto; /* Center horizontally */
-  animation: bounce 4s;
-  animation-iteration-count: 5;
+  animation: shake 1.5s;
+  animation-iteration-count: 1;
 }
 
 /* Card Inner (flipping mechanism) */

@@ -29,7 +29,7 @@ card.addEventListener("click", () => {
 
 const duration = 360 * 1000; // 15 sekund
 const animationEnd = Date.now() + duration;
-let skew = 0.2;
+let skew = 1;
 
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
@@ -37,7 +37,7 @@ function randomInRange(min, max) {
 
 function frame() {
   const timeLeft = animationEnd - Date.now();
-  const ticks = Math.max(20, 100 * (timeLeft / duration));
+  const ticks = Math.max(90, 100 * (timeLeft / duration));
 
   skew = Math.max(0.2, skew - 0.01);
 
@@ -51,9 +51,9 @@ function frame() {
     },
     colors: ["#ffffff"],
     shapes: ["circle"],
-    gravity: randomInRange(100, 120),
-    scalar: randomInRange(1, 2),
-    drift: randomInRange(-0.4, 0.4),
+    gravity: randomInRange(10, 120),
+    scalar: randomInRange(0.1, 1),
+    drift: randomInRange(-1, 1),
   });
 
   if (timeLeft > 0) {
