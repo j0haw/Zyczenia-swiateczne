@@ -4,11 +4,7 @@
 }
 
 /* Body Styling */
-
 body {
-  background-image: url("background.png");
-  background-size: cover;
-  background-position: center;
   overflow: hidden; /* Hide scrollbars */
   background-color: #040904;
   display: flex;
@@ -16,6 +12,20 @@ body {
   align-items: center;
   justify-content: center;
   height: 100svh;
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("background.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure the background is behind other elements */
 }
 
 @keyframes shake {
@@ -39,7 +49,7 @@ body {
 }
 
 .card {
-  z-index: 1;
+  z-index: 10; /* Ensure the card is on top */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +80,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: 0 0px 500px rgba(250, 250, 250, 0.05);
 }
 
 /* Front Side */
@@ -92,4 +102,37 @@ body {
 /* Flipped Class */
 .card.flipped .card-inner {
   transform: rotateY(180deg);
+}
+
+/* Snowflake Styling */
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) translateX(10vw);
+  }
+  100% {
+    transform: translateY(100vh) translateX(-10vw);
+  }
 }
