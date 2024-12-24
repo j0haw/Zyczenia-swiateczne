@@ -2,6 +2,23 @@
   box-sizing: border-box;
   position: relative;
 }
+.montserrat-alternates-medium {
+  font-family: "Montserrat Alternates", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.montserrat-alternates-semibold {
+  font-family: "Montserrat Alternates", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.montserrat-alternates-extrabold {
+  font-family: "Montserrat Alternates", serif;
+  font-weight: 800;
+  font-style: normal;
+}
 
 /* Body Styling */
 body {
