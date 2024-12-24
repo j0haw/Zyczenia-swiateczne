@@ -25,7 +25,7 @@ body {
   filter: blur(2px);
   background-size: cover;
   background-position: center;
-  z-index: -2;
+  z-index: -3;
 }
 
 @keyframes shake {
